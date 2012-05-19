@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project>
+	<yoga-version>1</yoga-version>
+	<compiler-version>2.0.9</compiler-version>
+	
+	<id>com.wighawag.report.Report</id>
+	<version>0.1</version>
+	
+	<main>com.wighawag.report.ReportUseTest</main>
+	
+	<sources>
+		<source path="src" />
+	</sources>
+	
+	<target name="swf" hxml="compile_swf.hxml" />
+	<target name="cpp" hxml="compile_cpp.hxml" />
+	<target name="js" hxml="compile_js.hxml" />
+	
+	
+	<config-file template="flashdevelop.template" output="Report_flash.hxproj" />
+	
+	<dependencies>
+		<sourcezip url="https://github.com/touch/PrimeVC/zipball/master" >
+			<sources>
+				<source path="^[^/]+/src$"/>
+			</sources>
+		</sourcezip>
+	</dependencies>
+</project>

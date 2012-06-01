@@ -5,9 +5,9 @@
     <movie outputType="Application" />
     <movie input="" />
     <movie path="::targetDirectory::\::shortName::_::version::.swf" />
-    <movie fps="0" />
-    <movie width="0" />
-    <movie height="0" />
+    <movie fps="31" />
+    <movie width="100" />
+    <movie height="100" />
     <movie version="10" />
     <movie minorVersion="1" />
     <movie platform="Flash Player" />
@@ -22,9 +22,9 @@
   <!-- Build options -->
   <build>
     <option directives="" />
-    <option flashStrict="False" />
+    <option flashStrict="True" />
     <option mainClass="::mainClass::" />
-    <option enabledebug="False" />
+    <option enabledebug="True" />
     <option additional="" />
   </build>
   <!-- haxelib libraries -->

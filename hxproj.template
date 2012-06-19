@@ -15,6 +15,9 @@
   </output>
   <!-- Other classes to be compiled into your SWF -->
   <classpaths>
+	::foreach projectSourceDirectories::
+    <class path="::__current__::" />
+	::end::
 	::foreach sourceDependencies::
     <class path="::path::" />
 	::end::
@@ -52,4 +55,30 @@
   </options>
   <!-- Plugin storage -->
   <storage />
+
+﻿  <PropertyGroup xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+
+    <TargetHXMLFile>compile_swf.hxml</TargetHXMLFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' " xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>.</OutputPath>
+    </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' " xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <ItemGroup xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	::foreach projectSourceDirectories::
+    <Folder Include="::__current__::" />
+       ::end::
+  </ItemGroup>
+  <ItemGroup xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    ::foreach sourceFiles::
+	<Compile Include="::__current__::" />
+    ::end::
+  </ItemGroup>
 </project>

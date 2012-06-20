@@ -29,9 +29,9 @@
 	
 	<config-file template="hxproj.template" output="Report_flash.hxproj" />
 	<config-file template="sln.template" output="Report.sln" />
-	
+
 	<dependencies>
-		<sourcezip url="https://github.com/touch/PrimeVC/zipball/master" >
+		<sourcezip url="https://github.com/wighawag/PrimeVC/zipball/master" >
 			<sources>
 				<source path="\^[^/]+/src$\"/>
 			</sources>

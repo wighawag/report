@@ -8,3 +8,5 @@ Report.sln
 Report.userprefs
 test.hxml
 test/TestMain.hx
+.idea/
+report.iml

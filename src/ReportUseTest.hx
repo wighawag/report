@@ -11,12 +11,12 @@ class ReportUseTest{
 	{
 		handleError.on(Report.error,null);
 		
-		Report.anError(new Error('test'));
+		Report.anError('test');
 	}
 	
-	static private function handleError(error : Error) : Void
+	static private function handleError(error : Dynamic) : Void
 	{
-		trace(error.msg);
+		trace(error);
 	}
 
 	

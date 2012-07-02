@@ -12,7 +12,7 @@
 		<source path="src" />
 	</sources>
 	
-	<munit-tests version="0.9.2.5" path="test" />
+	<tests framework="munit" path="test" />
 	
 	<targets hxml="compile">
 		

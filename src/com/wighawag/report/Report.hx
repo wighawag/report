@@ -1,34 +1,72 @@
 package com.wighawag.report;
-import primevc.core.dispatcher.Signal1;
 
+import haxe.macro.Expr;
+import msignal.Signal;
 
-class Report 
+import haxe.PosInfos;
+
+class Report
 {
-	
-	private static var instance : Report = new Report();
-	
-	public static var info  : Signal1<Dynamic> = new Signal1<Dynamic>();
-	public static var warning  : Signal1<Dynamic> = new Signal1<Dynamic>();
-	public static var error  : Signal1<Dynamic> = new Signal1<Dynamic>();
+    @:macro static public function aDebugInfo(channel : String, message : String, ?exprs : Array<Expr>) : Expr
+    {
+        return report("debug", channel, message, exprs);
+    }
 
-	inline static public function anError(_error : Dynamic) : Void
+	@:macro static public function anError(channel : String, message : String, ?exprs : Array<Expr>) : Expr
 	{
-		error.send(_error);
+        return report("error", channel, message, exprs);
 	}
-	
-	inline static public function anInfo(_info : Dynamic) : Void
+
+    @:macro static public function aWarning(channel : String, message : String, ?exprs : Array<Expr>) : Expr
 	{
-		info.send(_info);
+        return report("warn", channel, message, exprs);
 	}
-	
-	inline static public function aWarning(_warning : Dynamic) : Void
+
+    @:macro static public function anInfo(channel : String, message : String, ?exprs : Array<Expr>) : Expr
 	{
-		warning.send(_warning);
+        return report("info", channel, message, exprs);
 	}
-	
-	private function new() : Void
-	{
-		
-	}
-	
+
+    @:macro static public function any(channel : String, message : String, ?exprs : Array<Expr>) : Expr
+    {
+        return report("log", channel, message, exprs);
+    }
+
+    #if macro
+    static private function report(severity : String, channel : String, message : String, ?exprs : Array<Expr>) : Expr
+    {
+        var context = haxe.macro.Context;
+        var pos = context.currentPos();
+
+
+        // TODO WHYE ARE THEY SHOWN IN DIFFERENT ORDER ?
+        /*
+        var traceExpr = context.parse("trace('error','" + channel + "','" + message + "')", pos);
+        trace(traceExpr.expr);
+        switch (traceExpr.expr){
+            case ECall(e,params):
+                for (e in exprs){
+                    params.push(e);
+                }
+
+            default : trace("trace should be a call");
+        }
+        return traceExpr;
+        */
+
+
+        var params = new Array<Expr>();
+        params.push({expr : EConst(CString(severity)), pos : pos});
+        params.push({expr : EConst(CString(message)), pos : pos}); // TODO WHY DO WE need to swap message and channel to get them in the correct order ?
+        params.push({expr : EConst(CString(channel)), pos : pos});
+        if (exprs != null){
+            params = params.concat(exprs);
+        }
+        return {expr : ECall({expr : EConst(CIdent('trace')), pos : pos},params), pos : pos};
+
+
+    }
+
+    #end
+
 }

@@ -31,10 +31,6 @@
 	<config-file template="sln.template" output="Report.sln" />
 
 	<dependencies>
-		<sourcezip url="https://github.com/wighawag/PrimeVC/zipball/master" >
-			<sources>
-				<source path="\^[^/]+/src$\"/>
-			</sources>
-		</sourcezip>
+		<haxelib name="msignal" version="1.0.0" />
 	</dependencies>
 </project>

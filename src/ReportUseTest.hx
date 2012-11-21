@@ -1,4 +1,5 @@
 package ;
+import com.wighawag.report.DefaultLogger;
 import com.wighawag.report.ReportHandler;
 import com.wighawag.report.event.Error;
 import com.wighawag.report.Report;
@@ -15,7 +16,7 @@ class ReportUseTest{
 	
 	static public function main() : Void
 	{
-        haxe.Log.trace = myTrace;
+        haxe.Log.trace = DefaultLogger.trace;
 
 		Report.anError('testChannel', "sdds");
 
@@ -26,20 +27,6 @@ class ReportUseTest{
         Report.any("testChannel", "message", ["dsd", 4, 67]);
 	}
 
-    private static function myTrace( v : Dynamic, ?inf : haxe.PosInfos ) {
-        #if cpp
-            if (inf.customParams != null)
-            {
-                cpp.Lib.println(v + inf.customParams);
-            }
-            else
-            {
-                cpp.Lib.println(v);
-            }
-        #elseif flash
-            flash.Lib.trace(v + inf.customParams);
-        #end
 
-    }
 	
 }

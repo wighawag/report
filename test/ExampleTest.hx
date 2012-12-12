@@ -15,7 +15,7 @@ class ExampleTest
 	
 	public function new() 
 	{
-		
+
 	}
 	
 	@BeforeClass

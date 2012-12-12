@@ -1,7 +1,6 @@
 package com.wighawag.report;
 
 import haxe.macro.Expr;
-import msignal.Signal;
 
 import haxe.PosInfos;
 

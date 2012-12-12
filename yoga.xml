@@ -31,6 +31,6 @@
 	<config-file template="sln.template" output="Report.sln" />
 
 	<dependencies>
-		<haxelib name="msignal" version="1.0.0" />
+		
 	</dependencies>
 </project>

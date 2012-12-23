@@ -6,29 +6,36 @@ import haxe.PosInfos;
 
 class Report
 {
+
+	public static var DEBUG = "debug";
+	public static var ERROR = "error";
+	public static var WARNING = "warn";
+	public static var INFO = "info";
+	public static var LOG = "log";
+
     @:macro static public function aDebugInfo(channel : Expr, message : Expr, ?exprs : Array<Expr>) : Expr
     {
-        return report("debug", channel, message, exprs);
+        return report(DEBUG, channel, message, exprs);
     }
 
 	@:macro static public function anError(channel : Expr, message : Expr, ?exprs : Array<Expr>) : Expr
 	{
-        return report("error", channel, message, exprs);
+        return report(ERROR, channel, message, exprs);
 	}
 
     @:macro static public function aWarning(channel : Expr, message : Expr, ?exprs : Array<Expr>) : Expr
 	{
-        return report("warn", channel, message, exprs);
+        return report(WARNING, channel, message, exprs);
 	}
 
     @:macro static public function anInfo(channel : Expr, message : Expr, ?exprs : Array<Expr>) : Expr
 	{
-        return report("info", channel, message, exprs);
+        return report(INFO, channel, message, exprs);
 	}
 
     @:macro static public function any(channel : Expr, message : Expr, ?exprs : Array<Expr>) : Expr
     {
-        return report("log", channel, message, exprs);
+        return report(LOG, channel, message, exprs);
     }
 
     #if macro

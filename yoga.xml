@@ -4,7 +4,8 @@
 	<compiler-version>2.10</compiler-version>
 	
 	<id>com.wighawag.report.Report</id>
-	<version>0.1.1-SNAPSHOT</version>
+	<version>0.1.1</version>
+	<prepared>2013-02-23 19:06:48</prepared>
 	
 	<main>ReportUseTest</main>
 	

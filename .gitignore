@@ -1,11 +1,11 @@
 *~
 *.swp
-bin/
+haxelib/
 build/
 report/
 test/TestMain.hx
 test/TestSuite.hx
 test.hxml
 .idea/
-report.iml
+*.iml
 tags

@@ -5,7 +5,6 @@ build/
 report/
 test/TestMain.hx
 test/TestSuite.hx
-test.hxml
 .idea/
 *.iml
 tags

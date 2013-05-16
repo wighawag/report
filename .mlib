@@ -1,6 +1,0 @@
-<mlib bin="haxelib">
-	<resources>
-		<resource type="src" path="src" dest="" />
-		<resource type="license" path="LICENSE.txt" />
-	</resources>
-</mlib>

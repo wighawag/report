@@ -2,10 +2,12 @@
   "name": "wighawag-report",
   "url" : "https://github.com/wighawag/report/",
   "license": "Wighawag",
+  "licenseFile": "LICENSE.txt",
   "tags": ["cross", "debug"],
   "description": "A Reporting library that use trace underneath but display a more explicit API",
   "version": "0.0.1",
-  "releasenote": "First test release",
   "contributors": ["wighawag"],
-  "dependencies": {}
+  "dependencies": {},
+  "classPaths": ["src"],
+  "targets": ["js", "swf", "cpp", "neko"]
 }

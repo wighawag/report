@@ -8,7 +8,4 @@ test/TestSuite.hx
 .idea/
 *.iml
 tags
-.mlib
-.munit
-test.hxml
-haxelib.json
+
